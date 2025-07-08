@@ -63,7 +63,7 @@ class LinearStage():
             measure.append(function())
             time.sleep(time_wait)
 
-        save_data.with_print(position=position, measure=measure, parameters={"step":step})
+        save_data.with_numpy(position=position, measure=measure, parameters={"step":step})
         return 0
 
 
