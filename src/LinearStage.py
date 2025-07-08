@@ -2,6 +2,7 @@ import elliptec
 import sys, os
 import time
 import save_data
+import numpy as np
 
 class LinearStage():
     """ Linear stage interface"""
@@ -55,7 +56,9 @@ class LinearStage():
             return 1
 
         position, measure = [], []
-        for pos in range(start, end+1, step):
+        target_positions = np.arange(start, end + step/2, step).tolist()
+
+        for pos in target_positions:
             position.append(self.move(pos))
             measure.append(function())
             time.sleep(time_wait)
